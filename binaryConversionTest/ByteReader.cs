@@ -11,18 +11,33 @@ namespace binaryConversionTest
         {
         }
 
-
         //write method for debugging sanity
-        public void WriteToBin(string aa)
+        public void WriteToBin()
         {
-            FileStream fileStream = File.Open("stuff.bin", FileMode.Create, FileAccess.ReadWrite);
+            FileStream fileStream = File.Open("stuff.bin", FileMode.Create);
 
-            BinaryWriter binaryWriter = new BinaryWriter(fileStream);
-            binaryWriter.Write(aa);
+            //something is fucky in this method
+            //
 
-            binaryWriter.Flush();
-            binaryWriter.Dispose();
 
+            byte bite = (byte) Convert.ToSByte(8);
+
+            BinaryWriter binWriter = new BinaryWriter(fileStream);
+            binWriter.Write(bite);
+
+            binWriter.Flush();
+            binWriter.Close();
+        }
+
+        public void ReadFromBin()
+        {
+            FileStream fileStream = File.Open("stuff.bin", FileMode.Create);
+
+            BinaryReader binReader = new BinaryReader(fileStream);
+
+            byte bite = binReader.ReadByte();
+
+            Console.WriteLine(bite);
         }
     }
 }

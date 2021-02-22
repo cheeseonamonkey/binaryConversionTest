@@ -12,7 +12,8 @@ namespace binaryConversionTest
 
             ByteReader byteReader = new ByteReader();
 
-            byteReader.WriteToBin("a");
+            byteReader.WriteToBin();
+            byteReader.ReadFromBin();
 
         }
     }
