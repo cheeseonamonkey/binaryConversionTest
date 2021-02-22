@@ -23,20 +23,13 @@ namespace binaryConversionTest
         }
 
         //takes hex as a string or int and converts to a binary string
-        public static string HexToByte(string hex)
+        public static byte HexToByte(string hex)
         {
-            sbyte bite = Convert.ToSByte(hex, 16);
-            string bin = Convert.ToString((byte)bite, 2);
+            byte bite = (byte)Convert.ToSByte(hex, 16);
 
-            //adds trailing zeros
-            int n = 8 - bin.Length;
-            if (n > 0)
-                for (int i = 0; i < n; i++)
-                    bin = $"0{bin}";
-
-            return bin;
+            return bite;
         }
-        public static string HexToByte(int hex)
+        public static byte HexToByte(int hex)
         {
             return HexToByte(hex.ToString());
         }

@@ -10,7 +10,9 @@ namespace binaryConversionTest
             Console.WriteLine($"\n");
             Console.WriteLine($"{ByteConverter.HexToByte("90")}");
 
+            ByteReader byteReader = new ByteReader();
 
+            byteReader.WriteToBin("a");
 
         }
     }
