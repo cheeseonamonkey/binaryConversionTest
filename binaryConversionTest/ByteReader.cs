@@ -16,14 +16,14 @@ namespace binaryConversionTest
         {
             FileStream fileStream = File.Open("stuff.bin", FileMode.Create);
 
-            //something is fucky in this method
-            //
+            //Something is fucky in this method
+            //I think it is failing to write
 
 
             byte bite = (byte) Convert.ToSByte(8);
+            Console.WriteLine($"{bite}");
 
             BinaryWriter binWriter = new BinaryWriter(fileStream);
-            binWriter.Write(bite);
 
             binWriter.Flush();
             binWriter.Close();
@@ -36,6 +36,8 @@ namespace binaryConversionTest
             BinaryReader binReader = new BinaryReader(fileStream);
 
             byte bite = binReader.ReadByte();
+
+            binReader.Close();
 
             Console.WriteLine(bite);
         }
